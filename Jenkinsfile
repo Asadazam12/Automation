@@ -1,32 +1,33 @@
 pipeline {
-         agent any
-         tools {
-             nodejs 'NodeJS' // Assumes NodeJS is configured in Jenkins Global Tool Configuration
-         }
-         stages {
-             stage('Checkout') {
-                 steps {
-                     // Checkout code from SCM (e.g., Git)
-                     checkout scm
-                 }
-             }
-             stage('Install Dependencies') {
-                 steps {
-                     // Install Node.js dependencies
-                     sh 'npm install'
-                 }
-             }
-             stage('Run Tests') {
-                 steps {
-                     // Run Jest tests to generate junit.xml
-                     sh 'npm test'
-                 }
-             }
-         }
-         post {
-             always {
-                 // Archive JUnit XML results for Jenkins test reporting.
-                 junit 'test-results/junit.xml'
-             }
-         }
-     }
+    agent any
+    tools {
+        nodejs 'NodeJS' // Matches the Node.js installation name in Jenkins Global Tool Configuration
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm // Pulls code from the configured Git repository
+            }
+        }
+        stage('Install Dependencies') {
+            steps {
+                bat 'npm install' // Use bat for Windows
+            }
+        }
+        stage('Run Tests') {
+            steps {
+                bat 'npm test' // Use bat for Windows
+            }
+        }
+        stage('Archive Test Results') {
+            steps {
+                junit 'test-results/junit.xml' // Archives test results for Jenkins UI
+            }
+        }
+    }
+    post {
+        always {
+            archiveArtifacts artifacts: 'test-results/junit.xml', allowEmptyArchive: true // Archives junit.xml even if tests fail
+        }
+    }
+}
