@@ -13,7 +13,7 @@
     "axios": "^1.11.0",
     "jest": "^30.0.5",
     "jest-junit": "^16.0.0"
-  },/*,
+  },
   "jest": {
     "reporters": [
       "default",
@@ -21,9 +21,10 @@
         "jest-junit",
         {
           "outputDirectory": "./test-results",
-          "outputName": "junit.xml"
+          "outputName": "junit.xml",
+          "testTimeout": 10000
         }
       ]
     ]
-  } */
+  }
 }
