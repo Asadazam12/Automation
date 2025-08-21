@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="1" failures="0" errors="0" time="1.017">
-  <testsuite name="JSONPlaceholder API Tests" errors="0" failures="0" skipped="0" timestamp="2025-08-20T18:21:42" time="0.938" tests="1">
-    <testcase classname="JSONPlaceholder API Tests should return correct data for Post ID 1" name="JSONPlaceholder API Tests should return correct data for Post ID 1" time="0.535">
+<testsuites name="jest tests" tests="1" failures="0" errors="0" time="1.543">
+  <testsuite name="JSONPlaceholder API Tests" errors="0" failures="0" skipped="0" timestamp="2025-08-21T11:23:46" time="1.373" tests="1">
+    <testcase classname="JSONPlaceholder API Tests should return correct data for Post ID 1" name="JSONPlaceholder API Tests should return correct data for Post ID 1" time="0.881">
     </testcase>
   </testsuite>
 </testsuites>
